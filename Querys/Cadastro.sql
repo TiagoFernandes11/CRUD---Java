@@ -9,7 +9,7 @@ CREATE TABLE `Cliente` (
 	`nome` varchar(40) NOT NULL,
 	`senha` varchar(30) NOT NULL,
 	`id_endereco` INT(3) NOT NULL UNIQUE,
-	`id_contato` INT(3) NOT NULL,
+	`id_contato` INT(3) NOT NULL UNIQUE,
 	PRIMARY KEY (`id`)
 );
 
