@@ -18,7 +18,7 @@ public class ConnectionFactory {
         
         //tenta conexão com o banco
         try{
-            return DriverManager.getConnection(url);
+            return DriverManager.getConnection(url,"root","");
         }
         catch(SQLException exception){
             throw new RuntimeException("Erro: " + exception);

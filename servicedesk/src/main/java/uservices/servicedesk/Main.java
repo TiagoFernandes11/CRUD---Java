@@ -22,8 +22,7 @@ public class Main {
         ConnectionFactory conn = new ConnectionFactory();
         
         //tenta conectar ao banco
-        Class.forName("com.mysql.jdbc.Driver");
-        conn.getConnection("jdbc:mysql://localhost:3306/Application");
+        conn.getConnection("jdbc:mysql://localhost:3306/conta_pessoal");
         
         //aguarda um input qualquer, para que o programa nao termine
         sc.nextLine();
