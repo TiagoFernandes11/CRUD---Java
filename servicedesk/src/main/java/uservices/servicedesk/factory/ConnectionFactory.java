@@ -14,10 +14,13 @@ import java.sql.Connection;
  */
 public class ConnectionFactory {
     
+    //sem uso
+    
     public Connection getConnection(String url){
         
         //tenta conexão com o banco
         try{
+            System.out.println("Conexão bem sucedida");
             return DriverManager.getConnection(url,"root","");
         }
         catch(SQLException exception){
