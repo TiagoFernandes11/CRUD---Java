@@ -4,6 +4,8 @@
  */
 package uservices.crudjava.View;
 
+import uservices.crudjava.DTO.UsuarioDTO;
+
 /**
  *
  * @author User
@@ -39,6 +41,11 @@ public class formLoginView extends javax.swing.JFrame {
         jLabel2.setText("Senha");
 
         btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,6 +83,18 @@ public class formLoginView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        String nome_usuario, senha_usuario;
+        
+        nome_usuario = txtNomeUsuario.getText();
+        senha_usuario = txtSenhaUsuario.getText();
+        
+        UsuarioDTO objUsuarioDTO = new UsuarioDTO();
+        
+        objUsuarioDTO.setNome_usuario(nome_usuario);
+        objUsuarioDTO.setSenha_usuario(senha_usuario);
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments
