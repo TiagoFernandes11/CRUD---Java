@@ -151,7 +151,7 @@ public class formLoginView extends javax.swing.JFrame {
             objUsuarioDTO.setSenha_usuario(senha_usuario);
             
             UserDAO objUsuarioDAO = new UserDAO();
-            ResultSet rsUserDAO = objUsuarioDAO.autenticacaoUsuario(objUsuarioDTO);
+            ResultSet rsUserDAO = objUsuarioDAO.autenticarUsuario(objUsuarioDTO);
             
             if (rsUserDAO.next()) {
                 formPrincipalVIEW objFormPrincipalVIEW = new formPrincipalVIEW();

@@ -45,7 +45,7 @@ public class UserDAO {
         
     }
 
-    public ResultSet autenticacaoUsuario(UserDTO objUsuarioDTO) {
+    public ResultSet autenticarUsuario(UserDTO objUsuarioDTO) {
         conn = new ConnectionDAO().conectaBD();
 
         try {
