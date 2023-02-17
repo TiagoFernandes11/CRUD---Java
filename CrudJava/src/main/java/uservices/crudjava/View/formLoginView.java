@@ -90,34 +90,7 @@ public class formLoginView extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
-        try {
-            
-            String nome_usuario, senha_usuario;
-
-            nome_usuario = txtNomeUsuario.getText();
-            senha_usuario = txtSenhaUsuario.getText();
-
-            UserDTO objUsuarioDTO = new UserDTO();
-
-            objUsuarioDTO.setNome_usuario(nome_usuario);
-            objUsuarioDTO.setSenha_usuario(senha_usuario);
-            
-            UserDAO objUsuarioDAO = new UserDAO();
-            ResultSet rsUserDAO = objUsuarioDAO.autenticacaoUsuario(objUsuarioDTO);
-            
-            if (rsUserDAO.next()) {
-                formPrincipalVIEW objFormPrincipalVIEW = new formPrincipalVIEW();
-                objFormPrincipalVIEW.setVisible(true);
-                
-                dispose();
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuário ou Senha Inválidos!");
-            }
-            
-        } catch (SQLException e) {
-            System.out.println("Erro Buttom: " + e.getMessage());
-        }
+       Logar();
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -163,4 +136,36 @@ public class formLoginView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeUsuario;
     private javax.swing.JTextField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private void Logar(){
+         try {
+            
+            String nome_usuario, senha_usuario;
+
+            nome_usuario = txtNomeUsuario.getText();
+            senha_usuario = txtSenhaUsuario.getText();
+
+            UserDTO objUsuarioDTO = new UserDTO();
+
+            objUsuarioDTO.setNome_usuario(nome_usuario);
+            objUsuarioDTO.setSenha_usuario(senha_usuario);
+            
+            UserDAO objUsuarioDAO = new UserDAO();
+            ResultSet rsUserDAO = objUsuarioDAO.autenticacaoUsuario(objUsuarioDTO);
+            
+            if (rsUserDAO.next()) {
+                formPrincipalVIEW objFormPrincipalVIEW = new formPrincipalVIEW();
+                objFormPrincipalVIEW.setVisible(true);
+                
+                dispose();
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou Senha Inválidos!");
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("Erro Buttom: " + e.getMessage());
+        }
+    }
+
 }
