@@ -8,7 +8,7 @@ package uservices.crudjava.DTO;
  *
  * @author User
  */
-public class UsuarioDTO {
+public class UserDTO {
     
     private int id_usuario;
     private String nome_usuario;

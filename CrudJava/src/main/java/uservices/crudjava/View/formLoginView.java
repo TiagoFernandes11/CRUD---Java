@@ -4,7 +4,11 @@
  */
 package uservices.crudjava.View;
 
-import uservices.crudjava.DTO.UsuarioDTO;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import uservices.crudjava.DAO.UserDAO;
+import uservices.crudjava.DTO.UserDTO;
 
 /**
  *
@@ -85,15 +89,36 @@ public class formLoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        String nome_usuario, senha_usuario;
-        
-        nome_usuario = txtNomeUsuario.getText();
-        senha_usuario = txtSenhaUsuario.getText();
-        
-        UsuarioDTO objUsuarioDTO = new UsuarioDTO();
-        
-        objUsuarioDTO.setNome_usuario(nome_usuario);
-        objUsuarioDTO.setSenha_usuario(senha_usuario);
+
+        try {
+            
+            String nome_usuario, senha_usuario;
+
+            nome_usuario = txtNomeUsuario.getText();
+            senha_usuario = txtSenhaUsuario.getText();
+
+            UserDTO objUsuarioDTO = new UserDTO();
+
+            objUsuarioDTO.setNome_usuario(nome_usuario);
+            objUsuarioDTO.setSenha_usuario(senha_usuario);
+            
+            UserDAO objUsuarioDAO = new UserDAO();
+            ResultSet rsUserDAO = objUsuarioDAO.autenticacaoUsuario(objUsuarioDTO);
+            
+            if (rsUserDAO.next()) {
+                formPrincipalVIEW objFormPrincipalVIEW = new formPrincipalVIEW();
+                objFormPrincipalVIEW.setVisible(true);
+                
+                dispose();
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou Senha Inválidos!");
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("Erro Buttom: " + e.getMessage());
+        }
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
