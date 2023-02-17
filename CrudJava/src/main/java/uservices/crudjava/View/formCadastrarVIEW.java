@@ -4,6 +4,8 @@
  */
 package uservices.crudjava.View;
 
+import javax.swing.JOptionPane;
+import uservices.crudjava.DAO.UserDAO;
 import uservices.crudjava.DTO.UserDTO;
 
 /**
@@ -102,7 +104,13 @@ public class formCadastrarVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+       
+        cadastrar();
         
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    public void cadastrar(){
+         
         String nome_usuario, senha_usuario, confirma_senha_usuario;
         
         nome_usuario = txtNomeUsuario.getText();
@@ -110,9 +118,19 @@ public class formCadastrarVIEW extends javax.swing.JFrame {
         confirma_senha_usuario = txtSenhaUsuario02.getText();
         
         UserDTO objUserDTO = new UserDTO();
+        objUserDTO.setNome_usuario(nome_usuario);
         
-    }//GEN-LAST:event_btnCadastrarActionPerformed
-
+        if(senha_usuario.equals(confirma_senha_usuario)){
+            objUserDTO.setSenha_usuario(senha_usuario);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "As senhas não são iguais");
+        }
+        
+        UserDAO objUserDAO = new UserDAO();
+        objUserDAO.cadastrarUsuario(objUserDTO);
+    }
+    
     /**
      * @param args the command line arguments
      */
