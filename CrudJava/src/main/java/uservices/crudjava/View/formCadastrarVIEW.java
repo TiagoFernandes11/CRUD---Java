@@ -44,11 +44,7 @@ public class formCadastrarVIEW extends javax.swing.JFrame {
 
         jLabel2.setText("Senha");
 
-        txtSenhaUsuario01.setText("jPasswordField1");
-
         jLabel3.setText("Confirmação da Senha");
-
-        txtSenhaUsuario02.setText("jPasswordField2");
 
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
