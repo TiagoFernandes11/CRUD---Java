@@ -51,8 +51,6 @@ public class formLoginView extends javax.swing.JFrame {
             }
         });
 
-        txtSenhaUsuario.setText("jPasswordField1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
