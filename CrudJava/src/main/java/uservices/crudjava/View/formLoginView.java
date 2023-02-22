@@ -91,6 +91,7 @@ public class formLoginView extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
        Logar();
+       
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -156,6 +157,8 @@ public class formLoginView extends javax.swing.JFrame {
             if (rsUserDAO.next()) {
                 formPrincipalVIEW objFormPrincipalVIEW = new formPrincipalVIEW();
                 objFormPrincipalVIEW.setVisible(true);
+                
+                JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
                 
                 dispose();
                 

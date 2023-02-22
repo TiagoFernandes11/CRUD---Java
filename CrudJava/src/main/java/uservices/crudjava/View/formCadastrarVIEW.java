@@ -118,6 +118,12 @@ public class formCadastrarVIEW extends javax.swing.JFrame {
         
         if(senha_usuario.equals(confirma_senha_usuario)){
             objUserDTO.setSenha_usuario(senha_usuario);
+            
+            JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
+            
+            formLoginView objFormLoginView = new formLoginView();
+            objFormLoginView.setVisible(true);
+            dispose();
         }
         else{
             JOptionPane.showMessageDialog(null, "As senhas não são iguais");
